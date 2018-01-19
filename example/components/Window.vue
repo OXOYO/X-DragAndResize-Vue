@@ -155,12 +155,13 @@
               done: 'x-drag-done',
               main: 'x-drag'
             },
-            // 指定拖拽时bus 广播事件名称，名称需唯一
-            // FIXME 【暂弃】
-            bus: {
-              start: 'x-drag-start',
-              move: 'x-drag-move',
-              done: 'x-drag-done'
+            // 回调
+            callback: {
+              start: null,
+              move: null,
+              done: (style) => {
+                console.log('drag done', style)
+              }
             }
           },
           // 缩放配置
@@ -185,12 +186,13 @@
               done: 'x-resize-done',
               main: 'x-resize'
             },
-            // 指定缩放时bus 广播事件名称，名称需唯一
-            // FIXME 【暂弃】
-            bus: {
-              start: 'x-resize-start',
-              move: 'x-resize-move',
-              done: 'x-resize-done'
+            // 回调
+            callback: {
+              start: null,
+              move: null,
+              done: (style) => {
+                console.log('resize done', style)
+              }
             }
           }
         }
