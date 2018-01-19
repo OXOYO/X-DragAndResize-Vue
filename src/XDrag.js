@@ -228,7 +228,6 @@ XDrag.install = function (Vue) {
                         top: resizeInfo.position.top + dis.y + 'px'
                       }
                       break
-                    // FIXME 【DONE】
                     case 'top-right':
                       style = {
                         width: resizeInfo.position.width + dis.x + 'px',
@@ -236,7 +235,6 @@ XDrag.install = function (Vue) {
                         top: resizeInfo.position.top + dis.y + 'px'
                       }
                       break
-                    // FIXME 【DONE】
                     case 'bottom-left':
                       style = {
                         width: resizeInfo.position.width - dis.x + 'px',
@@ -244,27 +242,23 @@ XDrag.install = function (Vue) {
                         left: resizeInfo.position.left + dis.x + 'px'
                       }
                       break
-                    // FIXME 【DONE】
                     case 'bottom-right':
                       style = {
                         width: resizeInfo.position.width + dis.x + 'px',
                         height: resizeInfo.position.height + dis.y + 'px'
                       }
                       break
-                    // FIXME 【DONE】
                     case 'top-border':
                       style = {
                         height: resizeInfo.position.height - dis.y + 'px',
                         top: resizeInfo.position.top + dis.y + 'px'
                       }
                       break
-                    // FIXME 【DONE】
                     case 'right-border':
                       style = {
                         width: resizeInfo.position.width + dis.x + 'px'
                       }
                       break
-                    // FIXME 【DONE】
                     case 'bottom-border':
                       style = {
                         height: resizeInfo.position.height + dis.y + 'px'
