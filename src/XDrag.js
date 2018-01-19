@@ -16,7 +16,7 @@ XDrag.install = function (Vue) {
       config = {
         // 上下文，如需广播事件则必须
         context: _t,
-       // 拖拽配置
+        // 拖拽配置
         drag: {
           // 是否启用拖拽
           enable: true,
@@ -30,6 +30,7 @@ XDrag.install = function (Vue) {
             main: 'x-drag'
           },
           // 指定拖拽时bus 广播事件名称，名称需唯一
+          // FIXME 【暂弃】
           bus: {
             start: 'x-drag-start',
             move: 'x-drag-move',
@@ -42,7 +43,7 @@ XDrag.install = function (Vue) {
           enable: false,
           // 指定缩放把手元素，支持一个或多个把手
           handler: [],
-          // 缩放不同节点 className
+          // 缩放不同阶段 className
           class: {
             start: 'x-resize-start',
             move: 'x-resize-move',
@@ -50,6 +51,7 @@ XDrag.install = function (Vue) {
             main: 'x-resize'
           },
           // 指定缩放时bus 广播事件名称，名称需唯一
+          // FIXME 【暂弃】
           bus: {
             start: 'x-resize-start',
             move: 'x-resize-move',
