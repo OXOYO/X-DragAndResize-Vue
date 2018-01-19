@@ -12,54 +12,54 @@ XDrag.install = function (Vue) {
   Vue.directive('x-drag', {
     inserted: function (el, binding) {
       /*
-      // config 配置结构参考
-      config = {
-        // 上下文，如需广播事件则必须
-        context: _t,
-        // 拖拽配置
-        drag: {
-          // 是否启用拖拽
-          enable: true,
-          // 指定拖拽把手元素，支持一个或多个把手
-          handler: [],
-          // 拖拽不同阶段 className
-          class: {
-            start: 'x-drag-start',
-            move: 'x-drag-move',
-            done: 'x-drag-done',
-            main: 'x-drag'
-          },
-          // 指定拖拽时bus 广播事件名称，名称需唯一
-          // FIXME 【暂弃】
-          bus: {
-            start: 'x-drag-start',
-            move: 'x-drag-move',
-            done: 'x-drag-done'
-          }
-        },
-        // 缩放配置
-        resize: {
-          // 是否启用拖拽
-          enable: false,
-          // 指定缩放把手元素，支持一个或多个把手
-          handler: [],
-          // 缩放不同阶段 className
-          class: {
-            start: 'x-resize-start',
-            move: 'x-resize-move',
-            done: 'x-resize-done',
-            main: 'x-resize'
-          },
-          // 指定缩放时bus 广播事件名称，名称需唯一
-          // FIXME 【暂弃】
-          bus: {
-            start: 'x-resize-start',
-            move: 'x-resize-move',
-            done: 'x-resize-done'
-          }
-        }
-      }
-      */
+       // config 配置结构参考
+       config = {
+       // 上下文，如需广播事件则必须
+       context: _t,
+       // 拖拽配置
+       drag: {
+       // 是否启用拖拽
+       enable: true,
+       // 指定拖拽把手元素，支持一个或多个把手
+       handler: [],
+       // 拖拽不同阶段 className
+       class: {
+       start: 'x-drag-start',
+       move: 'x-drag-move',
+       done: 'x-drag-done',
+       main: 'x-drag'
+       },
+       // 指定拖拽时bus 广播事件名称，名称需唯一
+       // FIXME 【暂弃】
+       bus: {
+       start: 'x-drag-start',
+       move: 'x-drag-move',
+       done: 'x-drag-done'
+       }
+       },
+       // 缩放配置
+       resize: {
+       // 是否启用拖拽
+       enable: false,
+       // 指定缩放把手元素，支持一个或多个把手
+       handler: [],
+       // 缩放不同阶段 className
+       class: {
+       start: 'x-resize-start',
+       move: 'x-resize-move',
+       done: 'x-resize-done',
+       main: 'x-resize'
+       },
+       // 指定缩放时bus 广播事件名称，名称需唯一
+       // FIXME 【暂弃】
+       bus: {
+       start: 'x-resize-start',
+       move: 'x-resize-move',
+       done: 'x-resize-done'
+       }
+       }
+       }
+       */
       let getCss = function (element) {
         return element.currentStyle ? element.currentStyle : document.defaultView.getComputedStyle(element, null)
       }
@@ -89,6 +89,12 @@ XDrag.install = function (Vue) {
             }
             // 绑定事件
             bar.onmousedown = function (event) {
+              if (event.stopPropagation) {
+                event.stopPropagation()
+              }
+              if (event.preventDefault) {
+                event.preventDefault()
+              }
               dragInfo.flag = true
               // 添加class
               target.classList.add(config.drag.class.start, config.drag.class.main)
@@ -114,9 +120,6 @@ XDrag.install = function (Vue) {
                   if (target.classList.contains(config.drag.class.start)) {
                     target.classList.remove(config.drag.class.start)
                   }
-                  if (target.classList.contains(config.drag.class.main)) {
-                    target.classList.remove(config.drag.class.main)
-                  }
                   if (!target.classList.contains(config.drag.class.move)) {
                     target.classList.add(config.drag.class.move)
                   }
@@ -137,6 +140,12 @@ XDrag.install = function (Vue) {
               }
               // 绑定mouseup事件
               document.onmouseup = function (event) {
+                if (event.stopPropagation) {
+                  event.stopPropagation()
+                }
+                if (event.preventDefault) {
+                  event.preventDefault()
+                }
                 dragInfo.flag = false
                 Object.values(config.drag.class).map(function (className) {
                   target.classList.remove(className)
@@ -183,6 +192,12 @@ XDrag.install = function (Vue) {
             }
             // 绑定事件
             bar.onmousedown = function (event) {
+              if (event.stopPropagation) {
+                event.stopPropagation()
+              }
+              if (event.preventDefault) {
+                event.preventDefault()
+              }
               resizeInfo.flag = true
               // 添加class
               target.classList.add(config.resize.class.start, config.resize.class.main)
@@ -209,9 +224,6 @@ XDrag.install = function (Vue) {
                 if (resizeInfo.flag) {
                   if (target.classList.contains(config.resize.class.start)) {
                     target.classList.remove(config.resize.class.start)
-                  }
-                  if (target.classList.contains(config.resize.class.main)) {
-                    target.classList.remove(config.resize.class.main)
                   }
                   if (!target.classList.contains(config.resize.class.move)) {
                     target.classList.add(config.resize.class.move)
@@ -280,6 +292,12 @@ XDrag.install = function (Vue) {
               }
               // 绑定mouseup事件
               document.onmouseup = function (event) {
+                if (event.stopPropagation) {
+                  event.stopPropagation()
+                }
+                if (event.preventDefault) {
+                  event.preventDefault()
+                }
                 resizeInfo.flag = false
                 Object.values(config.resize.class).map(function (className) {
                   target.classList.remove(className)
