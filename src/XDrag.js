@@ -12,54 +12,54 @@ XDrag.install = function (Vue) {
   Vue.directive('x-drag', {
     inserted: function (el, binding) {
       /*
-       // config 配置结构参考
-       config = {
-       // 上下文，如需广播事件则必须
-       context: _t,
-       // 拖拽配置
-       drag: {
-       // 是否启用拖拽
-       enable: true,
-       // 指定拖拽把手元素，支持一个或多个把手
-       handler: [],
-       // 拖拽不同阶段 className
-       class: {
-       start: 'x-drag-start',
-       move: 'x-drag-move',
-       done: 'x-drag-done',
-       main: 'x-drag'
-       },
-       // 指定拖拽时bus 广播事件名称，名称需唯一
-       // FIXME 【暂弃】
-       bus: {
-       start: 'x-drag-start',
-       move: 'x-drag-move',
-       done: 'x-drag-done'
-       }
-       },
-       // 缩放配置
-       resize: {
-       // 是否启用拖拽
-       enable: false,
-       // 指定缩放把手元素，支持一个或多个把手
-       handler: [],
-       // 缩放不同阶段 className
-       class: {
-       start: 'x-resize-start',
-       move: 'x-resize-move',
-       done: 'x-resize-done',
-       main: 'x-resize'
-       },
-       // 指定缩放时bus 广播事件名称，名称需唯一
-       // FIXME 【暂弃】
-       bus: {
-       start: 'x-resize-start',
-       move: 'x-resize-move',
-       done: 'x-resize-done'
-       }
-       }
-       }
-       */
+      // config 配置结构参考
+      config = {
+        // 上下文，如需广播事件则必须
+        context: _t,
+        // 拖拽配置
+        drag: {
+          // 是否启用拖拽
+          enable: true,
+          // 指定拖拽把手元素，支持一个或多个把手
+          handler: [],
+          // 拖拽不同阶段 className
+          class: {
+            start: 'x-drag-start',
+            move: 'x-drag-move',
+            done: 'x-drag-done',
+            main: 'x-drag'
+          },
+          // 指定拖拽时bus 广播事件名称，名称需唯一
+          // FIXME 【暂弃】
+          bus: {
+            start: 'x-drag-start',
+            move: 'x-drag-move',
+            done: 'x-drag-done'
+          }
+        },
+        // 缩放配置
+        resize: {
+          // 是否启用拖拽
+          enable: false,
+          // 指定缩放把手元素，支持一个或多个把手
+          handler: [],
+          // 缩放不同阶段 className
+          class: {
+            start: 'x-resize-start',
+            move: 'x-resize-move',
+            done: 'x-resize-done',
+            main: 'x-resize'
+          },
+          // 指定缩放时bus 广播事件名称，名称需唯一
+          // FIXME 【暂弃】
+          bus: {
+            start: 'x-resize-start',
+            move: 'x-resize-move',
+            done: 'x-resize-done'
+          }
+        }
+      }
+      */
       let getCss = function (element) {
         return element.currentStyle ? element.currentStyle : document.defaultView.getComputedStyle(element, null)
       }
