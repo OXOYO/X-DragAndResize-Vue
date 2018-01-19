@@ -1,7 +1,7 @@
 {
   "name": "x-dragandresize-vue",
   "version": "1.0.0",
-  "description": "A Vue.js plugin use for modal window drag and resize.",
+  "description": "A Vue.js directive use for modal window drag and resize.",
   "author": "OXOYO <zmn2007.hi@163.com>",
   "private": true,
   "scripts": {

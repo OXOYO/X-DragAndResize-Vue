@@ -1,6 +1,6 @@
 # X-DragAndResize-Vue
 
-> A Vue.js plugin use for modal window drag and resize.
+> A Vue.js directive use for modal window drag and resize.
 
 ## Example
 
