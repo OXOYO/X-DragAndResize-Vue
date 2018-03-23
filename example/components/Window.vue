@@ -3,7 +3,7 @@
 *
 */
 
-<style scoped lang="less" rel="stylesheet/less">
+<style lang="less" rel="stylesheet/less">
   .drag-box {
     position: relative;
     width: 100%;
@@ -57,6 +57,17 @@
   .x-drag-move {
     transition: none;
     opacity: .7;
+
+    .x-window-header {
+      .x-window-title {
+        cursor: move !important;
+      }
+    }
+    .x-window-body {
+      .x-window-bar {
+        cursor: move !important;
+      }
+    }
   }
 
   .app-window-resize {
@@ -137,11 +148,8 @@
   export default {
     name: 'Window',
     data () {
-      let _t = this
       return {
         dragConfig: {
-          // 上下文，如需广播事件则必须
-          context: _t,
           // 拖拽配置
           drag: {
             // 是否启用拖拽
