@@ -2,6 +2,12 @@
 
 > A Vue.js directive use for modal window drag and resize.
 
+[![Version](https://img.shields.io/npm/v/x-dragandresize.svg)](https://www.npmjs.com/package/x-dragandresize)
+[![License](https://img.shields.io/npm/l/x-dragandresize.svg)](https://www.npmjs.com/package/x-dragandresize)
+[![NPM downloads](http://img.shields.io/npm/dm/x-dragandresize.svg?style=flat-square)](https://npmjs.org/package/x-dragandresize)
+[![Downloads](https://img.shields.io/npm/dt/x-dragandresize.svg)](https://www.npmjs.com/package/x-dragandresize)
+![JS gzip size](http://img.badgesize.io/https://unpkg.com/x-dragandresize/dist/XDrag.js?compression=gzip&label=gzip%20size:%20JS&style=flat-square)
+
 ## Example
 
 ``` bash
