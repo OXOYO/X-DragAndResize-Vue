@@ -14,7 +14,9 @@ npm run dev
 
 
 ## Preview
-![](https://raw.githubusercontent.com/OXOYO/X-DragAndResize-Vue/master/docs/preview.gif "preview")
+[Demo](https://oxoyo.github.io/X-DragAndResize-Vue/)
+
+![https://oxoyo.github.io/X-DragAndResize-Vue/](https://raw.githubusercontent.com/OXOYO/X-DragAndResize-Vue/master/docs/preview.gif "preview")
 
 ## Usage
 
