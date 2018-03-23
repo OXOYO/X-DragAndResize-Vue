@@ -1,22 +1,39 @@
 {
-  "name": "x-dragandresize-vue",
+  "name": "x-dragandresize",
   "version": "1.0.0",
+  "keywords": [
+    "vue",
+    "vue-plugin",
+    "vue-drag",
+    "vue-resize"
+  ],
   "description": "A Vue.js directive use for modal window drag and resize.",
   "author": "OXOYO <zmn2007.hi@163.com>",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OXOYO/X-DragAndResize-Vue.git"
+  },
+  "main": "dist/XDrag.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
+    "build": "babel src -d dist",
+    "build-example": "node build/build.js"
   },
   "dependencies": {
     "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",

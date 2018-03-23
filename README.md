@@ -5,6 +5,8 @@
 ## Example
 
 ``` bash
+# git clone https://github.com/OXOYO/X-DragAndResize-Vue.git
+
 # install dependencies
 npm install
 
@@ -21,11 +23,133 @@ npm run dev
 ## Usage
 
 ```bash
+## Packages install
+npm install x-dragandresize --save
+
 ## main.js
-import XDrag from '../src/XDrag'
+import XDrag from 'x-dragandresize'
 Vue.use(XDrag)
 
 ## xx.vue
+<style lang="less" rel="stylesheet/less">
+  .drag-box {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    box-sizing: border-box;
+    padding: 10px;
+    background: rgba(0, 0, 0, .1);
+  }
+  .x-window {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, .3);
+    background: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .x-window-header {
+      height: 30px;
+      line-height: 30px;
+      border-bottom: 1px solid rgba(0, 0, 0, .3);
+      background: rgba(245, 247, 249, 1);
+      cursor: default;
+
+      &:hover {
+        background: rgba(0, 0, 0, .1);
+      }
+
+      .x-window-title {
+        padding: 0 10px;
+        text-align: left;
+        cursor: default;
+      }
+    }
+    .x-window-body {
+      padding: 10px;
+
+      .x-window-bar {
+        padding: 10px;
+        border: 1px solid rgba(0, 0, 0, .1);
+        background: rgba(245, 247, 249, 1);
+        cursor: default;
+        &:hover {
+          background: rgba(0, 0, 0, .1);
+        }
+      }
+    }
+  }
+
+  .x-drag-start,
+  .x-drag-move {
+    transition: none;
+    opacity: .7;
+
+    .x-window-header {
+      .x-window-title {
+        cursor: move !important;
+      }
+    }
+    .x-window-body {
+      .x-window-bar {
+        cursor: move !important;
+      }
+    }
+  }
+
+  .app-window-resize {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: transparent;
+    &.resize-top-left {
+      cursor: nw-resize;
+      top: 0;
+      left: 0;
+    }
+    &.resize-top-right {
+      cursor: ne-resize;
+      top: 0;
+      right: 0;
+    }
+    &.resize-bottom-left {
+      cursor: sw-resize;
+      bottom: 0;
+      left: 0;
+    }
+    &.resize-bottom-right {
+      cursor: se-resize;
+      bottom: 0;
+      right: 0;
+    }
+    &.resize-top-border {
+      cursor: ns-resize;
+      top: 0;
+      width: 100%;
+      height: 2px;
+    }
+    &.resize-right-border {
+      cursor: ew-resize;
+      right: 0;
+      width: 2px;
+      height: 100%;
+    }
+    &.resize-bottom-border {
+      cursor: ns-resize;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+    }
+    &.resize-left-border {
+      cursor: ew-resize;
+      left: 0;
+      width: 2px;
+      height: 100%;
+    }
+  }
+</style>
+
 <template>
   <div class="drag-box">
     <div class="x-window" v-x-drag="dragConfig">
@@ -52,11 +176,8 @@ Vue.use(XDrag)
   export default {
     name: 'Window',
     data () {
-      let _t = this
       return {
         dragConfig: {
-          // Context, if necessary, for broadcast events
-          context: _t,
           // Drag and drop configuration
           drag: {
             // Whether to enable drag and drop
@@ -69,6 +190,14 @@ Vue.use(XDrag)
               move: 'x-drag-move',
               done: 'x-drag-done',
               main: 'x-drag'
+            },
+            // callback
+            callback: {
+              start: null,
+              move: null,
+              done: (style) => {
+                console.log('drag done', style)
+              }
             }
           },
           // Zoom configuration
@@ -92,6 +221,14 @@ Vue.use(XDrag)
               move: 'x-resize-move',
               done: 'x-resize-done',
               main: 'x-resize'
+            },
+            // callback
+            callback: {
+              start: null,
+              move: null,
+              done: (style) => {
+                console.log('resize done', style)
+              }
             }
           }
         }

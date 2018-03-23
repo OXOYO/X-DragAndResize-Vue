@@ -14,8 +14,6 @@ XDrag.install = function (Vue) {
       /*
       // config 配置结构参考
       config = {
-        // 上下文，如需广播事件则必须
-        context: _t,
         // 拖拽配置
         drag: {
           // 是否启用拖拽
