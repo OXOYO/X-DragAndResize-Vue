@@ -88,6 +88,11 @@ XDrag.install = function (Vue) {
             }
             // 绑定事件
             bar.onmousedown = function (event) {
+              let disabledDrag = el.getAttribute('disabled-drag')
+              if (disabledDrag) {
+                console.log('XDrag Info:: drag not enabled!')
+                return
+              }
               if (event.stopPropagation) {
                 event.stopPropagation()
               }
@@ -195,6 +200,11 @@ XDrag.install = function (Vue) {
             }
             // 绑定事件
             bar.onmousedown = function (event) {
+              let disabledResize = el.getAttribute('disabled-resize')
+              if (disabledResize) {
+                console.log('XDrag Info:: resize not enabled!')
+                return
+              }
               if (event.stopPropagation) {
                 event.stopPropagation()
               }

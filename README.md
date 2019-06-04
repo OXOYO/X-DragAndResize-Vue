@@ -158,7 +158,7 @@ Vue.use(XDrag)
 
 <template>
   <div class="drag-box">
-    <div class="x-window" v-x-drag="dragConfig">
+    <div class="x-window" v-x-drag="dragConfig" :disabled-drag="disabledDrag" :disabled-resize="disabledResize">
       <div class="app-window-resize resize-top-left"></div>
       <div class="app-window-resize resize-top-right"></div>
       <div class="app-window-resize resize-bottom-left"></div>
@@ -181,6 +181,16 @@ Vue.use(XDrag)
 <script>
   export default {
     name: 'Window',
+    props: {
+      disabledDrag: {
+        type: Boolean,
+        default: false
+      },
+      disabledResize: {
+        type: Boolean,
+        default: false
+      }
+    },
     data () {
       return {
         dragConfig: {

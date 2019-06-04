@@ -29,9 +29,19 @@
     <div class="drag-header">
       <img src="./assets/logo.png">
       <h2>X-DragAndResize-Vue</h2>
+      <div class="form">
+        <div class="form-item">
+          <input type="checkbox" id="chek_001" :checked="disabledDrag" @change="handleDragChange">
+          <label for="chek_001">disabled drag</label>
+        </div>
+        <div class="form-item">
+          <input type="checkbox" id="chek_002" :checked="disabledResize" @change="handleResizeChange">
+          <label for="chek_002">disabled resize</label>
+        </div>
+      </div>
     </div>
     <!-- 拖拽窗口 -->
-    <Window></Window>
+    <Window :disabledDrag="disabledDrag" :disabledResize="disabledResize"></Window>
   </div>
 </template>
 
@@ -42,6 +52,20 @@ export default {
   name: 'App',
   components: {
     Window
+  },
+  data () {
+    return {
+      disabledDrag: false,
+      disabledResize: false
+    }
+  },
+  methods: {
+    handleDragChange (event) {
+      this.disabledDrag = event.target.checked
+    },
+    handleResizeChange (event) {
+      this.disabledResize = event.target.checked
+    }
   }
 }
 </script>
